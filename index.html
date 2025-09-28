@@ -815,10 +815,55 @@ html, body {
   .return-btn:hover {
     background-color: #05c497;
   }
+@media (prefers-color-scheme: dark) {
+  body {
+    background: url("main-fond-feuilles5.jpg") center/cover fixed !important;
+    /* ou ton image de fond claire */
+    color: #222 !important;
+  }
+  header {
+    background-image: url("fond-rd.png") !important;
+    /* ou ton image de fond claire */
+  }
+  /* ... autres éléments ... */
 
+
+}
+@media (max-width: 375px) {
+  header {
+    padding: 0.3em 0.1em;
+    height: 80vh;
+  }
+  .header-toggle {
+    width: 1.5em;
+    height: 1.5em;
+    bottom: 0.3em;
+  }
+  main {
+    margin-top: 1em;
+    padding: 0 0.2em;
+  }
+  #main-menu button {
+    height: 7em;
+    font-size: 0.8em;
+    border-radius: 0.4em;
+    padding: 0.5em 0.8em;
+  }
+  .content-section {
+    margin: 1em 0.2em;
+    padding: 1em 0.2em;
+    border-radius: 0.4em;
+  }
+  input, textarea, button[type="submit"] {
+    font-size: 0.9em;
+    padding: 0.6em 0.8em;
+    border-radius: 0.4em;
+  }
+}
   </style>
 </head>
 <body>
+<div class="overlay-blanc"></div>
   <div class="tropical-particles" id="particles"></div>
   <header id="mainHeader">
     <button class="header-toggle" id="headerToggle">
