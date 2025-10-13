@@ -1,13 +1,11 @@
 <!DOCTYPE html>
+
 <html lang="fr">
-
 <head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Raphaëlle & Dylan | Invitation à notre Mariage </title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&amp;family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
 
     * {
       box-sizing: border-box;
@@ -307,7 +305,7 @@ html, body {
     .content-section {
       display: none;
       max-width: 800px;
-      margin: -90px auto 40px;
+      margin: 40px auto 40px;
       padding: 40px;
       background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(20px);
@@ -860,32 +858,65 @@ html, body {
     border-radius: 0.4em;
   }
 }
-  </style>
+  
+.content-section { display: none; }
+.content-section.active { display: block; }
+.date-btn {
+  cursor: pointer;
+  margin-right: 10px;
+  padding: 8px 15px;
+  background: #ddd;
+  border-radius: 5px;
+  display: inline-block;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s;
+}
+.date-btn.active {
+  background: #7c7d82;
+  color: #fff;
+}
+.programme {
+  display: none;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity .5s;
+}
+.programme.active {
+  display: block;
+  opacity: 1;
+}
+.tropical-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  background: linear-gradient(90deg,#4D96FF,#6BCB77,#FFD93D,#4D96FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+</style>
 </head>
 <body>
 <div class="overlay-blanc"></div>
-  <div class="tropical-particles" id="particles"></div>
-  <header id="mainHeader">
-    <button class="header-toggle" id="headerToggle">
-      <span>v</span>
-    </button>
-  </header>
-  <div id="floating-countdown">
-    <img id="countdown-icon" src="https://imagizer.imageshack.com/img924/6573/DXAey3.png" alt="Cœur tropical" />
-    <span id="countdown-text">Chargement…</span>
-  </div>
-  <main id="mainContent">
-
-<div id="menuIntro" class="menu-intro">
-  <p><b>Bienvenue sur notre site de mariage ! 🎉</b><br>
-<br>
-     Vous découvrirez ici toutes les informations pour préparer au mieux ce jour exceptionnel. <br>
-<br>
+<div class="tropical-particles" id="particles"></div>
+<header id="mainHeader">
+<button class="header-toggle" id="headerToggle">
+<span>v</span>
+</button>
+</header>
+<div id="floating-countdown">
+<img alt="Cœur tropical" id="countdown-icon" src="https://imagizer.imageshack.com/img924/6573/DXAey3.png"/>
+<span id="countdown-text">Chargement…</span>
+</div>
+<main id="mainContent">
+<div class="menu-intro" id="menuIntro">
+<p><b>Bienvenue sur notre site de mariage ! 🎉</b><br/>
+<br/>
+     Vous découvrirez ici toutes les informations pour préparer au mieux ce jour exceptionnel. <br/>
+<br/>
  Cet évènement a pour but de célébrer notre Amour avec vous, 
-<br>mais le plus important pour nous est que chaque membre de la famille soit mis à l'honneur en ce jour!
-<br>
-<br>N'hésitez pas à naviguer dans les différents onglets du site ✨ <br></p>
-
+<br/>mais le plus important pour nous est que chaque membre de la famille soit mis à l'honneur en ce jour!
+<br/>
+<br/>N'hésitez pas à naviguer dans les différents onglets du site ✨ <br/></p>
 </div>
 <style>
   /* ... tout votre CSS existant ... */
@@ -960,62 +991,91 @@ html, body {
 
 
 </style>
-
-
-  <!-- BOUTONS -->
-  <nav id="main-menu">
-    <button class="btn-lieux" onclick="showSection('lieux')" style="background-image: url('fond1.png');">
+<!-- BOUTONS -->
+<nav id="main-menu">
+<button class="btn-lieux" onclick="showSection('lieux')" style="background-image: url('fond1.png');">
       Lieux de réception
     </button>
-    <button class="btn-rsvp" onclick="showSection('confirmation')" style="background-image: url('fond4.png');">
+<button class="btn-rsvp" onclick="showSection('confirmation')" style="background-image: url('fond4.png');">
       Confirmer sa Présence
     </button>
-    <button class="btn-cadeaux" onclick="showSection('cadeaux')" style="background-image: url('fond3.png');">
+<button class="btn-cadeaux" onclick="showSection('cadeaux')" style="background-image: url('fond3.png');">
       Liste de mariage
     </button>
-    <button class="btn-hebergement" onclick="showSection('hebergement')" style="background-image: url('fond6.png');">
+<button class="btn-hebergement" onclick="showSection('hebergement')" style="background-image: url('fond6.png');">
       Hébergement
     </button>
-    <button class="btn-programme" onclick="showSection('programme')" style="background-image: url('fond2.png');">
+<button class="btn-programme" onclick="showSection('programme')" style="background-image: url('fond2.png');">
       Programme
     </button>
-    <button class="btn-question" onclick="showSection('questions')" style="background-image: url('fond5.png');">
+<button class="btn-question" onclick="showSection('questions')" style="background-image: url('fond5.png');">
       Une question ?
     </button>
-
-  </nav>
-</div>
-    <section id="lieux" class="content-section">
-  <h2>Les lieux de l'Évènement</h2>
-  <p>Notre journée se déroulera à deux endroits :</p>
-
-<div class="lieux-grid">
-  <!-- Colonne 1 -->
-  <div class="lieu">
-    <p><em>Cérémonie religieuse</em></p>
-    <p><strong>Église Saint-Michel de Lagrasse</strong><br>
-    19 Rue Saint-Michel, 11220 Lagrasse</p>
+</nav>
+<section class="content-section" id="questions">
+<h2>Une question ?</h2>
+<p>N'hésitez pas à nous poser toutes vos questions, nous sommes là pour vous aider !</p>
+<form action="https://formspree.io/f/mzzvnzgw" id="contact-form" method="POST">
+<input name="nom" placeholder="Votre nom" required="" type="text"/>
+<input name="email" placeholder="Votre email" required="" type="email"/>
+<textarea name="message" placeholder="Votre question" required="" rows="5"></textarea>
+<input name="_gotcha" style="display:none" type="text"/>
+<button type="submit">Poser ma question</button>
+</form>
+<div id="response-message" style="display:none; color: green; margin-top: 1em;">
+    Merci ! Ton message a bien été envoyé.
   </div>
-
-  <!-- Colonne 2 (Bichonnière avec halo bordeaux) -->
-  <div class="lieu bordeaux">
-    <p><em>Réception et festivités</em></p>
-    <p><strong>La Bichonnière</strong><br>
-    Domaine des Vallons<br>
-    Route de St Polycarpe, 11300 Limoux</p>
-  </div>
-</div>
-
-
-
-  <div style="position:relative;width:100%;height:400px;border-radius:16px;overflow:hidden;">
- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1tLisUpgIrgG2QNpxwSY6cAXRxnfDeiI&ehbc=2E312F&noprof=1" width="640" height="480"></iframe>
- 
-</div>
-
-  <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
 
+<section class="content-section" id="programme">
+<h2>Programme des 2 Journées</h2>
+<span class="date-btn active" onclick="showProgramme('jour1', this)">13 Juillet</span>
+<span class="date-btn" onclick="showProgramme('jour2', this)">14 Juillet</span>
+<div class="programme active" id="jour1">
+<h3 class="tropical-text">Programme du 13 Juillet</h3>
+<ul>
+<li><strong>15h00</strong> – Rendez-vous à Lagrasse pour la cérémonie religieuse</li>
+<li><strong>16h00</strong> – Départ vers le lieu de réception La Bichonnière à Limoux</li>
+<li><strong>17h30</strong> – Accueil des invités sur le lieu de réception</li>
+<li><strong>18h00</strong> – Vin d'honneur et photos de groupe</li>
+<li><strong>20h30</strong> – Entrée dans la salle et dîner placé</li>
+</ul>
+</div>
+<div class="programme" id="jour2">
+<h3 class="tropical-text">Programme du 14 Juillet</h3>
+<ul>
+<li><strong>10h00</strong> – Cérémonies traditionnelles Mahoraises</li>
+<li><strong>13h30</strong> – Grillades</li>
+</ul>
+</div>
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+</section>
+
+
+<section class="content-section" id="lieux">
+<h2>Les lieux de l'Évènement</h2>
+<p>Notre journée se déroulera à deux endroits :</p>
+<div class="lieux-grid">
+<!-- Colonne 1 -->
+<div class="lieu">
+<p><em>Cérémonie religieuse</em></p>
+<p><strong>Église Saint-Michel de Lagrasse</strong><br/>
+    19 Rue Saint-Michel, 11220 Lagrasse</p>
+</div>
+<!-- Colonne 2 (Bichonnière avec halo bordeaux) -->
+<div class="lieu bordeaux">
+<p><em>Réception et festivités</em></p>
+<p><strong>La Bichonnière</strong><br/>
+    Domaine des Vallons<br/>
+    Route de St Polycarpe, 11300 Limoux</p>
+</div>
+</div>
+<div style="position:relative;width:100%;height:400px;border-radius:16px;overflow:hidden;">
+<iframe height="480" src="https://www.google.com/maps/d/u/0/embed?mid=1tLisUpgIrgG2QNpxwSY6cAXRxnfDeiI&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+</div>
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+</section>
 <style>
 .menu-container {
   position: relative;
@@ -1154,22 +1214,50 @@ html, body {
 
 
 </style>
-
-    <section id="confirmation" class="content-section">
-      <h2>Confirmation de Présence</h2>
-      <p>Merci de confirmer votre présence<br>
+<section class="content-section" id="confirmation">
+<h2>Confirmation de Présence</h2>
+<p>Merci de confirmer votre présence<br/>
          afin que nous puissions organiser au mieux cette journée parfaite !</p>
-<form id="confirmationForm" action="https://getform.io/f/bqoeklvb" method="POST">
-  <input type="text" name="Nom" placeholder="Nom et prénom" required />
-  <input type="email" name="Email" placeholder="Adresse email" required />
-  <input type="number" name="Personnes" placeholder="Nombre de participants" min="1" max="10" required />
-  <textarea name="Commentaires" placeholder="Commentaires" rows="4"></textarea>
-  <button type="submit">Confirmer ma présence</button>
-  <div id="confirmationMessage" style="display:none; margin-top:10px; color:#06d6a0; font-weight:600;">
+<form action="https://getform.io/f/bqoeklvb" id="confirmationForm" method="POST">
+<input name="Nom" placeholder="Nom et prénom" required="" type="text"/>
+<input name="Email" placeholder="Adresse email" required="" type="email"/>
+<input max="10" min="1" name="Personnes" placeholder="Nombre de participants" required="" type="number"/>
+<textarea name="Commentaires" placeholder="Commentaires" rows="4"></textarea>
+<button type="submit">Confirmer ma présence</button>
+<div id="confirmationMessage" style="display:none; margin-top:10px; color:#06d6a0; font-weight:600;">
     Merci ! Votre présence a été enregistrée 🌺
   </div>
 </form>
 
+<script>
+function showProgramme(jourId, btn){
+  document.querySelectorAll('.programme').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.date-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(jourId).classList.add('active');
+  btn.classList.add('active');
+}
+document.getElementById('contact-form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  fetch(this.action, {
+    method: this.method,
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(response => {
+    if (response.ok) {
+      document.getElementById('response-message').style.display = 'block';
+      this.reset();
+    } else {
+      response.json().then(data => {
+        alert("Erreur lors de l'envoi : " + (data.error || "réessaye plus tard."));
+      });
+    }
+  })
+  .catch(() => {
+    alert("Erreur réseau, réessayez plus tard.");
+  });
+});
+</script>
 <script>
 document.getElementById('confirmationForm').addEventListener('submit', function(e) {
   e.preventDefault(); // Empêche le rechargement de la page
@@ -1192,43 +1280,29 @@ document.getElementById('confirmationForm').addEventListener('submit', function(
   });
 });
 </script>
-
-      <div style="margin-top: 20px; text-align: center; font-style: italic; color: #c7b449; font-weight: 600;">
+<div style="margin-top: 20px; text-align: center; font-style: italic; color: #c7b449; font-weight: 600;">
         Merci pour votre réponse !
       </div>
-      <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
-
-
-    </section>
-
-
-    <section id="cadeaux" class="content-section">
-  <h2>Liste de Cadeaux</h2>
-  <p>Votre présence est notre plus beau cadeau ! 
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+</section>
+<section class="content-section" id="cadeaux">
+<h2>Liste de Cadeaux</h2>
+<p>Votre présence est notre plus beau cadeau ! 
  <p style="margin-top: 30px; font-style: italic; font-size: 16px; color: #7c7d82;">
 Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un lien Paypal</p>
-
-  
 <ul class="submenu">
-
-    <a href="#" onclick="openPopup()">
-      <img src="Designer2.png" alt="Liste de mariage" class="gift-logo special-logo"> 
-    </a>
-
-    <a href="https://www.paypal.me/RaphaelleC13" title="Dons PayPal" onclick="openPaypalPopup(); return false;">
-      <img src="PayPal_Logo2014.png" alt="PayPal Logo" class="gift-logo">
-    </a>
+<a href="#" onclick="openPopup()">
+<img alt="Liste de mariage" class="gift-logo special-logo" src="Designer2.PNG"/>
+</a>
+<a href="https://www.paypal.me/RaphaelleC13" onclick="openPaypalPopup(); return false;" title="Dons PayPal">
+<img alt="PayPal Logo" class="gift-logo" src="PayPal_Logo2014.png"/>
+</a>
 </ul>
-
-
-  <p style="margin-top: 30px; font-style: italic; color: #06d6a0;">
+<p style="margin-top: 30px; font-style: italic; color: #06d6a0;">
    Chaque geste, petit ou grand, nous touchera énormément !
   </p>
-
-  <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
-</section>
-
-
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+</p></section>
 <script>
   // Popup liste de mariage
   function openPopup() {
@@ -1266,127 +1340,114 @@ Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 </script>
-
-
-
-    <section id="hebergement" class="content-section">
-      <h2>Hébergements</h2>
-      <p>Voici quelques options d'hébergement à proximité du lieu de réception :</p>
-      <ul>
+<section class="content-section" id="hebergement">
+<h2>Hébergements</h2>
+<p>Voici quelques options d'hébergement à proximité du lieu de réception :</p>
+<ul>
 <p><b><u>Hôtels</u></b></p>
 <li>
-  <a href="https://les-arcades-limoux.fr/" target="_blank"><strong>Les Arcades</strong></a> (Limoux) - 8 minutes en voiture
+<a href="https://les-arcades-limoux.fr/" target="_blank"><strong>Les Arcades</strong></a> (Limoux) - 8 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Hôtel et appart'hôtel à partir de 65€/nuit</em><br>
-    <a href="mailto:reception@les-arcades-limoux.fr" style="font-size: 0.8em;">reception@les-arcades-limoux.fr</a><br>
-    <a href="tel:+33468310257" style="font-size: 0.8em;">04 68 31 02 57</a>
-  </div>
+<em>Hôtel et appart'hôtel à partir de 65€/nuit</em><br/>
+<a href="mailto:reception@les-arcades-limoux.fr" style="font-size: 0.8em;">reception@les-arcades-limoux.fr</a><br/>
+<a href="tel:+33468310257" style="font-size: 0.8em;">04 68 31 02 57</a>
+</div>
 </li>
-
 <li>
-  <a href="https://hotel-moderne-et-pigeon.galaxy-reservation.fr/dispo.php/" target="_blank"><strong>Hôtel moderne & Pigeon</strong></a> (Limoux) - 8 minutes en voiture
+<a href="https://hotel-moderne-et-pigeon.galaxy-reservation.fr/dispo.php/" target="_blank"><strong>Hôtel moderne &amp; Pigeon</strong></a> (Limoux) - 8 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Hôtel à partir de 102€/nuit</em><br>
-    <a href="mailto:hotelmodernepigeon@wanadoo.fr" style="font-size: 0.8em;">hotelmodernepigeon@wanadoo.fr</a><br>
-    <a href="tel:+33468310025" style="font-size: 0.8em;">04 68 31 00 25</a>
-  </div>
+<em>Hôtel à partir de 102€/nuit</em><br/>
+<a href="mailto:hotelmodernepigeon@wanadoo.fr" style="font-size: 0.8em;">hotelmodernepigeon@wanadoo.fr</a><br/>
+<a href="tel:+33468310025" style="font-size: 0.8em;">04 68 31 00 25</a>
+</div>
 </li>
-
 <li>
-  <a href="https://hotel-limoux.fr/dispo.php/" target="_blank"><strong>Hôtel Motel Limoux</strong></a> (Limoux) - 5 minutes en voiture
+<a href="https://hotel-limoux.fr/dispo.php/" target="_blank"><strong>Hôtel Motel Limoux</strong></a> (Limoux) - 5 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Motel à partir de 32€/nuit</em><br>
-    <a href="contact@hotel-limoux.fr" style="font-size: 0.8em;">contact@hotel-limoux.fr</a><br>
-    <a href="tel:+33661408388" style="font-size: 0.8em;">06 61 40 83 88</a>
-  </div>
+<em>Motel à partir de 32€/nuit</em><br/>
+<a href="contact@hotel-limoux.fr" style="font-size: 0.8em;">contact@hotel-limoux.fr</a><br/>
+<a href="tel:+33661408388" style="font-size: 0.8em;">06 61 40 83 88</a>
+</div>
 </li>
-
 <li>
-  <strong>Plateformes en ligne</strong></a> (Limoux et alentour)
+<strong>Plateformes en ligne</strong> (Limoux et alentour)
   <div style="margin-left: 40px; line-height: 1.6;">
-  <em>Logements à partir de 60€/nuit</em><br>
-  Sur <a href="https://www.airbnb.fr/a/stays/Limoux--Occitanie--France?c=.pi0.pk185593895_43199840099&gclsrc=aw.ds&&c=.pi0.pk185593895_43199840099&localized_ghost=true&gad_source=1&gad_campaignid=185593895&gbraid=0AAAAADz55LlunrI8cGNvEQWA2dCCFEQKp&gclid=Cj0KCQjwh5vFBhCyARIsAHBx2wz1EaW4oBFqWJ5IpfHo6p1ouA5EUS344VpHC07prQGBa1oylRr8A90aAim-EALw_wcB/" target="_blank"><strong>AirBnB</strong></a> ou sur
-<a href="https://www.booking.com/booking-home/city/fr/limoux.fr.html?aid=2198091&label=limoux-ArFESzi9epqOtwgHsdkwSQS556563175367%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-325353244554%3Alp9055230%3Ali%3Adec%3Adm&gclid=Cj0KCQjwh5vFBhCyARIsAHBx2wysEzl6hlHK6xNvyW5orh8FmFZ09stVuPzaH2i7xreBJZ8kWAL8bPMaAt8cEALw_wcB&keep_landing=1&sid=51acad109f54857603509cf70b8c1c41/" target="_blank"><strong>Booking</strong></a>
-  </div>
+<em>Logements à partir de 60€/nuit</em><br/>
+  Sur <a href="https://www.airbnb.fr/a/stays/Limoux--Occitanie--France?c=.pi0.pk185593895_43199840099&amp;gclsrc=aw.ds&amp;&amp;c=.pi0.pk185593895_43199840099&amp;localized_ghost=true&amp;gad_source=1&amp;gad_campaignid=185593895&amp;gbraid=0AAAAADz55LlunrI8cGNvEQWA2dCCFEQKp&amp;gclid=Cj0KCQjwh5vFBhCyARIsAHBx2wz1EaW4oBFqWJ5IpfHo6p1ouA5EUS344VpHC07prQGBa1oylRr8A90aAim-EALw_wcB/" target="_blank"><strong>AirBnB</strong></a> ou sur
+<a href="https://www.booking.com/booking-home/city/fr/limoux.fr.html?aid=2198091&amp;label=limoux-ArFESzi9epqOtwgHsdkwSQS556563175367%3Apl%3Ata%3Ap1%3Ap2%3Aac%3Aap%3Aneg%3Afi%3Atikwd-325353244554%3Alp9055230%3Ali%3Adec%3Adm&amp;gclid=Cj0KCQjwh5vFBhCyARIsAHBx2wysEzl6hlHK6xNvyW5orh8FmFZ09stVuPzaH2i7xreBJZ8kWAL8bPMaAt8cEALw_wcB&amp;keep_landing=1&amp;sid=51acad109f54857603509cf70b8c1c41/" target="_blank"><strong>Booking</strong></a>
+</div>
 </li>
 <p><b><u>Gîtes et chambres d'hôtes</u></b></p>
-
-
 <li>
-  <a href="http://gitesmaynard.free.fr" target="_blank"><strong>Domaine de Maynard</strong></a> (Limoux) - 3 minutes en voiture
+<a href="http://gitesmaynard.free.fr" target="_blank"><strong>Domaine de Maynard</strong></a> (Limoux) - 3 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>5 gîte pour 4 personnes environ</em><br>
-    <a href="mericed@wanadoo.fr" style="font-size: 0.8em;">mericed@wanadoo.fr</a><br>
-    <a href="tel:+33468696331" style="font-size: 0.8em;">04 68 69 63 31</a>
-  </div>
+<em>5 gîte pour 4 personnes environ</em><br/>
+<a href="mericed@wanadoo.fr" style="font-size: 0.8em;">mericed@wanadoo.fr</a><br/>
+<a href="tel:+33468696331" style="font-size: 0.8em;">04 68 69 63 31</a>
+</div>
 </li>
 <li>
-  <a href="https://gresvaillant.fr" target="_blank"><strong>Domaine Grès Vaillant</strong></a> (Limoux) - 5 minutes en voiture
+<a href="https://gresvaillant.fr" target="_blank"><strong>Domaine Grès Vaillant</strong></a> (Limoux) - 5 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Gîte pour 10 personnes </em><br>
-    <a href="gresvaillant@gmail.com" style="font-size: 0.8em;">gresvaillant@gmail.com</a><br>
-    <a href="tel:+33672153438" style="font-size: 0.8em;">06 72 15 34 38</a>
-  </div>
+<em>Gîte pour 10 personnes </em><br/>
+<a href="gresvaillant@gmail.com" style="font-size: 0.8em;">gresvaillant@gmail.com</a><br/>
+<a href="tel:+33672153438" style="font-size: 0.8em;">06 72 15 34 38</a>
+</div>
 </li>
 <li>
-  <a href="https://www.facebook.com/Le-Mauzac" target="_blank"><strong>Le Mauzac</strong></a> (Limoux) - 8 minutes en voiture
+<a href="https://www.facebook.com/Le-Mauzac" target="_blank"><strong>Le Mauzac</strong></a> (Limoux) - 8 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Gîte de 5 chambres</em><br>
-    <a href="jeanpierrelemauzac@yahoo.com" style="font-size: 0.8em;">jeanpierrelemauzac@yahoo.com</a><br>
-    <a href="tel:+33614016288" style="font-size: 0.8em;">06 14 01 62 88</a>
-  </div>
+<em>Gîte de 5 chambres</em><br/>
+<a href="jeanpierrelemauzac@yahoo.com" style="font-size: 0.8em;">jeanpierrelemauzac@yahoo.com</a><br/>
+<a href="tel:+33614016288" style="font-size: 0.8em;">06 14 01 62 88</a>
+</div>
 </li>
 <li>
-  <a href="https://www.lamoneze.com/" target="_blank"><strong>Domaine de la Monèze basse</strong></a> (Limoux) - 10 minutes en voiture
+<a href="https://www.lamoneze.com/" target="_blank"><strong>Domaine de la Monèze basse</strong></a> (Limoux) - 10 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Gîtes et chambres d'hôtes</em><br>
-    <a href="info@lamoneze.com" style="font-size: 0.8em;">info@lamoneze.com</a><br>
-    <a href="tel:+33468316643" style="font-size: 0.8em;">04 68 31 66 43</a>
-  </div>
+<em>Gîtes et chambres d'hôtes</em><br/>
+<a href="info@lamoneze.com" style="font-size: 0.8em;">info@lamoneze.com</a><br/>
+<a href="tel:+33468316643" style="font-size: 0.8em;">04 68 31 66 43</a>
+</div>
 </li>
 <li>
-  <a href="https://www.gites-labastidesaintetienne.com/fr/dispo.php/" target="_blank"><strong>La Bastide Saint Etienne</strong></a> (Cournanel) - 10 minutes en voiture
+<a href="https://www.gites-labastidesaintetienne.com/fr/dispo.php/" target="_blank"><strong>La Bastide Saint Etienne</strong></a> (Cournanel) - 10 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
-    <em>Maisons de vacances</em><br>
-    <a href="labastidesaintetienne@gmail.com" style="font-size: 0.8em;">labastidesaintetienne@gmail.com</a><br>
-    <a href="tel:+33787872569 " style="font-size: 0.8em;">07 87 87 25 69</a>
-  </div>
+<em>Maisons de vacances</em><br/>
+<a href="labastidesaintetienne@gmail.com" style="font-size: 0.8em;">labastidesaintetienne@gmail.com</a><br/>
+<a href="tel:+33787872569 " style="font-size: 0.8em;">07 87 87 25 69</a>
+</div>
 </li>
-      </ul>
-      <p style="margin-top: 30px; font-style: italic; color: #2C5FBD;">
+</ul>
+<p style="margin-top: 30px; font-style: italic; color: #2C5FBD;">
         N'hésitez pas à réserver rapidement, la région est prisée en été ! ☀️
       </p>
-      <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
-
-  <section id="programme" class="content-section">
-  <h2>Programme des 2 Journées</h2>
-
-  <!-- Boutons pour choisir la date -->
-  <span class="date-btn active" onclick="showProgramme('jour1', this)">13 Juillet</span>
-  <span class="date-btn" onclick="showProgramme('jour2', this)">14 Juillet</span>
-
-  <!-- Programme du 13 juillet -->
-  <div id="jour1" class="programme active">
-    <h3 class="tropical-text">Programme du 13 Juillet</h3>
-    <ul>
-      <li><strong>15h00</strong> – Rendez-vous à Lagrasse pour la cérémonie religieuse</li>
-      <li><strong>16h00</strong> – Départ vers le lieu de réception La Bichonnière à Limoux</li>
-      <li><strong>17h30</strong> – Accueil des invités sur le lieu de réception</li>
-      <li><strong>18h00</strong> – Vin d'honneur et photos de groupe</li>
-      <li><strong>20h30</strong> – Entrée dans la salle et dîner placé</li>
-    </ul>
-  </div>
-
-  <!-- Programme du 14 juillet -->
-  <div id="jour2" class="programme">
-    <h3 class="tropical-text">Programme du 14 Juillet</h3>
-    <ul>
-      <li>10h00 – Cérémonies traditionnelles Mahoraises</li>
-      <li>13h30 – Grillades</li>
-    </ul>
-  </div>
-
-  <style>
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+<section class="content-section" id="programme">
+<h2>Programme des 2 Journées</h2>
+<!-- Boutons pour choisir la date -->
+<span class="date-btn active" onclick="showProgramme('jour1', this)">13 Juillet</span>
+<span class="date-btn" onclick="showProgramme('jour2', this)">14 Juillet</span>
+<!-- Programme du 13 juillet -->
+<div class="programme active" id="jour1">
+<h3 class="tropical-text">Programme du 13 Juillet</h3>
+<ul>
+<li><strong>15h00</strong> – Rendez-vous à Lagrasse pour la cérémonie religieuse</li>
+<li><strong>16h00</strong> – Départ vers le lieu de réception La Bichonnière à Limoux</li>
+<li><strong>17h30</strong> – Accueil des invités sur le lieu de réception</li>
+<li><strong>18h00</strong> – Vin d'honneur et photos de groupe</li>
+<li><strong>20h30</strong> – Entrée dans la salle et dîner placé</li>
+</ul>
+</div>
+<!-- Programme du 14 juillet -->
+<div class="programme" id="jour2">
+<h3 class="tropical-text">Programme du 14 Juillet</h3>
+<ul>
+<li>10h00 – Cérémonies traditionnelles Mahoraises</li>
+<li>13h30 – Grillades</li>
+</ul>
+</div>
+<style>
     .date-btn {
       cursor: pointer;
       margin-right: 10px;
@@ -1428,8 +1489,7 @@ Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un 
       }
     }
   </style>
-
-  <script>
+<script>
     function showProgramme(jourId, btn){
       document.querySelectorAll('.programme').forEach(p=>p.classList.remove('active'));
       document.querySelectorAll('.date-btn').forEach(b=>b.classList.remove('active'));
@@ -1437,28 +1497,24 @@ Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un 
       btn.classList.add('active');
     }
   </script>
-
-  <p style="margin-top:30px;font-style:italic;color:#118ab2;">
+<p style="margin-top:30px;font-style:italic;color:#118ab2;">
     Préparez-vous à danser jusqu'au lever du soleil !
   </p>
-  <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
-
-    <section id="questions" class="content-section">
-      <h2>Une question ?</h2>
-      <p>N'hésitez pas à nous poser toutes vos questions, nous sommes là pour vous aider !</p>
-<form id="contact-form" action="https://formspree.io/f/mzzvnzgw" method="POST">
-  <input type="text" name="nom" placeholder="Votre nom" required />
-  <input type="email" name="email" placeholder="Votre email" required />
-  <textarea name="message" placeholder="Votre question" rows="5" required></textarea>
-  <input type="text" name="_gotcha" style="display:none" />
-  <button type="submit">Poser ma question</button>
+<section class="content-section" id="questions">
+<h2>Une question ?</h2>
+<p>N'hésitez pas à nous poser toutes vos questions, nous sommes là pour vous aider !</p>
+<form action="https://formspree.io/f/mzzvnzgw" id="contact-form" method="POST">
+<input name="nom" placeholder="Votre nom" required="" type="text"/>
+<input name="email" placeholder="Votre email" required="" type="email"/>
+<textarea name="message" placeholder="Votre question" required="" rows="5"></textarea>
+<input name="_gotcha" style="display:none" type="text"/>
+<button type="submit">Poser ma question</button>
 </form>
-
 <div id="response-message" style="display:none; color: green; margin-top: 1em;">
   Merci ! Ton message a bien été envoyé.
 </div>
-
 <script>
 document.getElementById('contact-form').addEventListener('submit', function(event) {
   event.preventDefault();
@@ -1485,11 +1541,10 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   });
 });
 </script>
-
-      <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
-    </section>
-  </main>
-  <script>
+<button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
+</section>
+</section></main>
+<script>
     const weddingDate = new Date("2026-07-13T15:00:00").getTime();
     const countdownElement = document.getElementById("countdown-text");
     function createTropicalParticles() {
@@ -1654,7 +1709,6 @@ document.getElementById('contact-form').addEventListener('submit', function(even
   }
 })();
 </script>
-
 <!-- (Optionnel) un returnToMenu qui remet le menu et remonte en haut -->
 <script>
 window.returnToMenu = function(){
