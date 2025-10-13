@@ -104,6 +104,7 @@ html, body {
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     }
     .header-toggle {
+  bottom: 10%;
       position: absolute;
       bottom: 30px;
       left: 50%;
@@ -206,6 +207,10 @@ html, body {
       padding: 40px;
     }
     #main-menu button {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
       height: 180px;
       background-size: cover;
       background-position: center;
@@ -494,6 +499,19 @@ html, body {
       }
     }
     @media (max-width: 768px) {
+  #main-menu {
+    grid-template-columns: 1fr 1fr;
+    max-width: 400px;
+    margin: auto;
+  }
+  header {
+    background-image: url("fond-rdm.png") !important;
+    height: 90vh !important;
+  }
+  header.header-collapsed {
+    background-image: url("fond-rdm-menu.png") !important;
+    height: 120px !important;
+  }
       header {
         padding: 1.5rem 0.5rem;
      height: 100vh;
@@ -506,6 +524,7 @@ html, body {
         font-size: 1.6rem;
       }
       .header-toggle {
+  bottom: 10%;
         width: 36px;
         height: 36px;
         bottom: 12px;
@@ -522,6 +541,10 @@ html, body {
         margin: auto;
       }
       #main-menu button {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
         height: 200px;
         font-size: 1em;
         border-radius: 14px;
@@ -590,6 +613,7 @@ html, body {
         padding: 0.3rem 0.2rem;
       }
       .header-toggle {
+  bottom: 10%;
         width: 28px;
         height: 28px;
         bottom: 6px;
@@ -599,6 +623,10 @@ html, body {
         padding: 0 1px;
       }
       #main-menu button {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
         height: 150px;
         font-size: 0.85em;
         border-radius: 6px;
@@ -664,6 +692,19 @@ html, body {
 
     /* Ajout pour le fond mobile du header */
     @media (max-width: 768px) {
+  #main-menu {
+    grid-template-columns: 1fr 1fr;
+    max-width: 400px;
+    margin: auto;
+  }
+  header {
+    background-image: url("fond-rdm.png") !important;
+    height: 90vh !important;
+  }
+  header.header-collapsed {
+    background-image: url("fond-rdm-menu.png") !important;
+    height: 120px !important;
+  }
         header {
             background-image: url("fond-rdm.png") !important;
         }
@@ -833,6 +874,7 @@ html, body {
     height: 80vh;
   }
   .header-toggle {
+  bottom: 10%;
     width: 1.5em;
     height: 1.5em;
     bottom: 0.3em;
@@ -842,6 +884,10 @@ html, body {
     padding: 0 0.2em;
   }
   #main-menu button {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
     height: 7em;
     font-size: 0.8em;
     border-radius: 0.4em;
@@ -969,6 +1015,19 @@ html, body {
 }
 
   @media (max-width: 768px) {
+  #main-menu {
+    grid-template-columns: 1fr 1fr;
+    max-width: 400px;
+    margin: auto;
+  }
+  header {
+    background-image: url("fond-rdm.png") !important;
+    height: 90vh !important;
+  }
+  header.header-collapsed {
+    background-image: url("fond-rdm-menu.png") !important;
+    height: 120px !important;
+  }
     .menu-intro {
       padding: 16px 20px;
       font-size: 1em;
