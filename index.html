@@ -104,7 +104,6 @@ html, body {
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     }
     .header-toggle {
-  bottom: 10%;
       position: absolute;
       bottom: 30px;
       left: 50%;
@@ -207,10 +206,6 @@ html, body {
       padding: 40px;
     }
     #main-menu button {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
       height: 180px;
       background-size: cover;
       background-position: center;
@@ -499,19 +494,6 @@ html, body {
       }
     }
     @media (max-width: 768px) {
-  #main-menu {
-    grid-template-columns: 1fr 1fr;
-    max-width: 400px;
-    margin: auto;
-  }
-  header {
-    background-image: url("fond-rdm.png") !important;
-    height: 90vh !important;
-  }
-  header.header-collapsed {
-    background-image: url("fond-rdm-menu.png") !important;
-    height: 120px !important;
-  }
       header {
         padding: 1.5rem 0.5rem;
      height: 100vh;
@@ -524,7 +506,6 @@ html, body {
         font-size: 1.6rem;
       }
       .header-toggle {
-  bottom: 10%;
         width: 36px;
         height: 36px;
         bottom: 12px;
@@ -541,10 +522,6 @@ html, body {
         margin: auto;
       }
       #main-menu button {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
         height: 200px;
         font-size: 1em;
         border-radius: 14px;
@@ -613,7 +590,6 @@ html, body {
         padding: 0.3rem 0.2rem;
       }
       .header-toggle {
-  bottom: 10%;
         width: 28px;
         height: 28px;
         bottom: 6px;
@@ -623,10 +599,6 @@ html, body {
         padding: 0 1px;
       }
       #main-menu button {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
         height: 150px;
         font-size: 0.85em;
         border-radius: 6px;
@@ -692,19 +664,6 @@ html, body {
 
     /* Ajout pour le fond mobile du header */
     @media (max-width: 768px) {
-  #main-menu {
-    grid-template-columns: 1fr 1fr;
-    max-width: 400px;
-    margin: auto;
-  }
-  header {
-    background-image: url("fond-rdm.png") !important;
-    height: 90vh !important;
-  }
-  header.header-collapsed {
-    background-image: url("fond-rdm-menu.png") !important;
-    height: 120px !important;
-  }
         header {
             background-image: url("fond-rdm.png") !important;
         }
@@ -874,7 +833,6 @@ html, body {
     height: 80vh;
   }
   .header-toggle {
-  bottom: 10%;
     width: 1.5em;
     height: 1.5em;
     bottom: 0.3em;
@@ -884,10 +842,6 @@ html, body {
     padding: 0 0.2em;
   }
   #main-menu button {
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-  display: flex;
     height: 7em;
     font-size: 0.8em;
     border-radius: 0.4em;
@@ -939,6 +893,43 @@ html, body {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+@media (max-width: 768px) {
+  #main-menu {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+  .content-section {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+}
+@media (min-width: 769px) {
+  #main-menu {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+  .content-section {
+    margin-top: 40px;
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .gift-logo, .special-logo {
+    max-height: 100px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-section h2 {
+    font-size: 1.4em !important;
+  }
+}
+
+#main-menu {
+  margin-bottom: 40px;
+}
 </style>
 </head>
 <body>
@@ -954,7 +945,7 @@ html, body {
 <span id="countdown-text">Chargement…</span>
 </div>
 <main id="mainContent">
-<div class="menu-intro" id="menuIntro">
+<div class="menu-intro" id="menuIntro" style="margin-top: 20px;">
 <p><b>Bienvenue sur notre site de mariage ! 🎉</b><br/>
 <br/>
      Vous découvrirez ici toutes les informations pour préparer au mieux ce jour exceptionnel. <br/>
@@ -1015,19 +1006,6 @@ html, body {
 }
 
   @media (max-width: 768px) {
-  #main-menu {
-    grid-template-columns: 1fr 1fr;
-    max-width: 400px;
-    margin: auto;
-  }
-  header {
-    background-image: url("fond-rdm.png") !important;
-    height: 90vh !important;
-  }
-  header.header-collapsed {
-    background-image: url("fond-rdm-menu.png") !important;
-    height: 120px !important;
-  }
     .menu-intro {
       padding: 16px 20px;
       font-size: 1em;
@@ -1086,7 +1064,6 @@ html, body {
   </div>
 <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
-
 <section class="content-section" id="programme">
 <h2>Programme des 2 Journées</h2>
 <span class="date-btn active" onclick="showProgramme('jour1', this)">13 Juillet</span>
@@ -1110,8 +1087,6 @@ html, body {
 </div>
 <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
-
-
 <section class="content-section" id="lieux">
 <h2>Les lieux de l'Évènement</h2>
 <p>Notre journée se déroulera à deux endroits :</p>
@@ -1131,7 +1106,7 @@ html, body {
 </div>
 </div>
 <div style="position:relative;width:100%;height:400px;border-radius:16px;overflow:hidden;">
-<iframe height="480" src="https://www.google.com/maps/d/u/0/embed?mid=1tLisUpgIrgG2QNpxwSY6cAXRxnfDeiI&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+<iframe height="480" src="https://www.google.com/maps/d/u/0/embed?mid=1tLisUpgIrgG2QNpxwSY6cAXRxnfDeiI&amp;ehbc=2E312F&amp;noprof=1" style="width:100%; height:300px; border-radius:12px;" width="640"></iframe>
 </div>
 <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
@@ -1287,7 +1262,6 @@ html, body {
     Merci ! Votre présence a été enregistrée 🌺
   </div>
 </form>
-
 <script>
 function showProgramme(jourId, btn){
   document.querySelectorAll('.programme').forEach(p=>p.classList.remove('active'));
@@ -1349,7 +1323,7 @@ document.getElementById('confirmationForm').addEventListener('submit', function(
 <p>Votre présence est notre plus beau cadeau ! 
  <p style="margin-top: 30px; font-style: italic; font-size: 16px; color: #7c7d82;">
 Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un lien Paypal</p>
-<ul class="submenu">
+<ul class="submenu" style="display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:0;">
 <a href="#" onclick="openPopup()">
 <img alt="Liste de mariage" class="gift-logo special-logo" src="Designer2.PNG"/>
 </a>
