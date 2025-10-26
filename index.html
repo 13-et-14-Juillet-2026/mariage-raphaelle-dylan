@@ -104,6 +104,8 @@ html, body {
       font-size: clamp(0.9rem, 2.5vw, 1.1rem);
     }
     .header-toggle {
+  bottom: 20px !important;
+
   bottom: 10%;
       position: absolute;
       bottom: 30px;
@@ -201,12 +203,16 @@ html, body {
       transform: translateY(0);
     }
     #main-menu {
+  margin-top: 40px;
+
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 40px;
       padding: 40px;
     }
     #main-menu button {
+  padding-top: 1.2em;
+
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -308,6 +314,8 @@ html, body {
       }
     }
     .content-section {
+  margin-top: 40px;
+
       display: none;
       max-width: 800px;
       margin: 40px auto 40px;
@@ -490,16 +498,26 @@ html, body {
         padding: 0 10px;
       }
       #main-menu {
+  margin-top: 40px;
+
         gap: 24px;
         padding: 24px 8px;
       }
       .content-section {
+  margin-top: 40px;
+
         margin: 0 8px 24px;
         padding: 28px 12px;
       }
     }
     @media (max-width: 768px) {
+  .content-section h2 {
+    font-size: 1.6em !important;
+  }
+
   #main-menu {
+  margin-top: 40px;
+
     grid-template-columns: 1fr 1fr;
     max-width: 400px;
     margin: auto;
@@ -524,6 +542,8 @@ html, body {
         font-size: 1.6rem;
       }
       .header-toggle {
+  bottom: 20px !important;
+
   bottom: 10%;
         width: 36px;
         height: 36px;
@@ -534,6 +554,8 @@ html, body {
         padding: 0 4px;
       }
       #main-menu {
+  margin-top: 40px;
+
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 0 2px 18px;
@@ -541,6 +563,8 @@ html, body {
         margin: auto;
       }
       #main-menu button {
+  padding-top: 1.2em;
+
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -551,6 +575,8 @@ html, body {
       }
 
       .content-section {
+  margin-top: 40px;
+
         margin: 0 2px 18px;
         padding: 18px 6px;
         border-radius: 14px;
@@ -613,6 +639,8 @@ html, body {
         padding: 0.3rem 0.2rem;
       }
       .header-toggle {
+  bottom: 20px !important;
+
   bottom: 10%;
         width: 28px;
         height: 28px;
@@ -623,6 +651,8 @@ html, body {
         padding: 0 1px;
       }
       #main-menu button {
+  padding-top: 1.2em;
+
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -637,6 +667,8 @@ html, body {
       }
 
       .content-section {
+  margin-top: 40px;
+
         margin: 50px 20px;
         padding: 50px 20px;
         border-radius: 6px;
@@ -692,7 +724,13 @@ html, body {
 
     /* Ajout pour le fond mobile du header */
     @media (max-width: 768px) {
+  .content-section h2 {
+    font-size: 1.6em !important;
+  }
+
   #main-menu {
+  margin-top: 40px;
+
     grid-template-columns: 1fr 1fr;
     max-width: 400px;
     margin: auto;
@@ -818,6 +856,8 @@ html, body {
 }
 
 .gift-logo {
+  max-height: 100px;
+
     height: 150px;
     width: auto;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -830,6 +870,8 @@ html, body {
 }
 
 .special-logo {
+  max-height: 110px;
+
     height: 170px; /* plus grand que les autres */
 }
 
@@ -874,6 +916,8 @@ html, body {
     height: 80vh;
   }
   .header-toggle {
+  bottom: 20px !important;
+
   bottom: 10%;
     width: 1.5em;
     height: 1.5em;
@@ -884,6 +928,8 @@ html, body {
     padding: 0 0.2em;
   }
   #main-menu button {
+  padding-top: 1.2em;
+
   text-align: center;
   align-items: center;
   justify-content: center;
@@ -894,6 +940,8 @@ html, body {
     padding: 0.5em 0.8em;
   }
   .content-section {
+  margin-top: 40px;
+
     margin: 1em 0.2em;
     padding: 1em 0.2em;
     border-radius: 0.4em;
@@ -905,7 +953,9 @@ html, body {
   }
 }
   
-.content-section { display: none; }
+.content-section {
+  margin-top: 40px;
+ display: none; }
 .content-section.active { display: block; }
 .date-btn {
   cursor: pointer;
@@ -1015,7 +1065,13 @@ html, body {
 }
 
   @media (max-width: 768px) {
+  .content-section h2 {
+    font-size: 1.6em !important;
+  }
+
   #main-menu {
+  margin-top: 40px;
+
     grid-template-columns: 1fr 1fr;
     max-width: 400px;
     margin: auto;
@@ -1131,7 +1187,7 @@ html, body {
 </div>
 </div>
 <div style="position:relative;width:100%;height:400px;border-radius:16px;overflow:hidden;">
-<iframe height="480" src="https://www.google.com/maps/d/u/0/embed?mid=1tLisUpgIrgG2QNpxwSY6cAXRxnfDeiI&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
+<iframe height="300" src="https://www.google.com/maps/d/u/0/embed?mid=1tLisUpgIrgG2QNpxwSY6cAXRxnfDeiI&amp;ehbc=2E312F&amp;noprof=1" width="640"></iframe>
 </div>
 <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
@@ -1156,6 +1212,8 @@ html, body {
 }
 
 #main-menu {
+  margin-top: 40px;
+
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
