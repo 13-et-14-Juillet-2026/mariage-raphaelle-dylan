@@ -188,6 +188,7 @@ html, body {
       opacity: 0.8;
     }
     main {
+      overflow: visible !important;
       max-width: 1200px;
       margin: 0 auto;
       margin-top: 80px;
@@ -203,7 +204,7 @@ html, body {
       transform: translateY(0);
     }
     #main-menu {
-      margin: 40px auto 0 auto;
+      margin: 40px auto 80px auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
       gap: 40px;
@@ -491,11 +492,12 @@ html, body {
     /* ===== OPTIMIZED RESPONSIVE STYLES ===== */
     @media (max-width: 1024px) {
       main {
+        overflow: visible !important;
         margin-top: 80px;
         padding: 0 10px;
       }
       #main-menu {
-   margin: 40px auto 0 auto;
+   margin: 40px auto 80px auto;
    gap: 24px;
    padding: 24px 8px;
       }
@@ -514,7 +516,7 @@ html, body {
   #main-menu {
     grid-template-columns: 1fr 1fr;
     max-width: 400px;
-    margin: 40px auto 0 auto;
+    margin: 80px auto 80px auto;
   }
   header {
     background-image: url("fond-rdm.png") !important;
@@ -544,15 +546,17 @@ html, body {
         bottom: 12px;
       }
       main {
+        overflow: visible !important;
         margin-top: 60px;
         padding: 0 4px;
+        overflow: visible !important;
       }
       #main-menu {
         grid-template-columns: 1fr;
         gap: 20px;
         padding: 0 2px 18px;
         max-width: 300px;
-        margin: 40px auto 0 auto;
+        margin: 40px auto 80px auto;
       }
       #main-menu button {
   padding-top: 1.2em;
@@ -639,6 +643,7 @@ html, body {
         bottom: 6px;
       }
       main {
+        overflow: visible !important;
         margin-top: 30px;
         padding: 0 1px;
       }
@@ -723,7 +728,7 @@ html, body {
   #main-menu {
     grid-template-columns: 1fr 1fr;
     max-width: 400px;
-    margin: 40px auto 0 auto;
+    margin: 40px auto 80px auto;
   }
   header {
     background-image: url("fond-rdm.png") !important;
@@ -914,6 +919,7 @@ html, body {
     bottom: 0.3em;
   }
   main {
+    overflow: visible !important;
     margin-top: 1em;
     padding: 0 0.2em;
   }
@@ -1062,7 +1068,7 @@ html, body {
   #main-menu {
     grid-template-columns: 1fr 1fr;
     max-width: 400px;
-    margin: 40px auto 0 auto;
+    margin: 40px auto 80px auto;
   }
   header {
     background-image: url("fond-rdm.png") !important;
@@ -1138,7 +1144,7 @@ html, body {
 <div class="programme active" id="jour1">
 <h3 class="tropical-text">Programme du 13 Juillet</h3>
 <ul>
-<li><strong>15h00</strong> – Rendez-vous à Lagrasse pour la cérémonie religieuse</li>
+<li><strong>14h45</strong> – Rendez-vous à Lagrasse pour la cérémonie religieuse</li>
 <li><strong>16h00</strong> – Départ vers le lieu de réception La Bichonnière à Limoux</li>
 <li><strong>17h30</strong> – Accueil des invités sur le lieu de réception</li>
 <li><strong>18h00</strong> – Vin d'honneur et photos de groupe</li>
@@ -1201,7 +1207,7 @@ html, body {
 
 #main-menu {
   margin-top: 40px;
-
+  margin-bottom: 80px;
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 colonnes */
@@ -1730,24 +1736,19 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       const headerToggle = document.getElementById('headerToggle');
       const mainHeader = document.getElementById('mainHeader');
       const mainContent = document.getElementById('mainContent');
-      headerToggle.addEventListener('click', function() {
-        if (mainHeader.classList.contains('header-collapsed')) {
-          mainHeader.classList.remove('header-collapsed');
-          mainContent.classList.remove('content-visible');
-          document.body.style.overflow = 'hidden';
-        } else {
-          mainHeader.classList.add('header-collapsed');
-          mainContent.classList.add('content-visible');
-          document.body.style.overflow = 'auto';
-          setTimeout(() => {
-            window.scrollTo({ 
-  top: 200, // ou la valeur en pixels que tu veux
-  behavior: 'smooth' 
+
+headerToggle.addEventListener('click', function() {
+  mainHeader.style.display = 'none'; // Masque le header définitivement
+  mainContent.classList.add('content-visible');
+  document.body.style.overflow = 'auto';
+  setTimeout(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  }, 300);
 });
 
-          }, 300);
-        }
-      });
     });
   </script>
 <script>
@@ -1763,13 +1764,14 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 <script>
 (function(){
   // 1) Utilitaires : effondrer le header + rendre visible le main + activer scroll
-  function collapseHeaderAndShowMain(){
-    var header = document.getElementById('mainHeader');
-    var main   = document.getElementById('mainContent');
-    if (header && !header.classList.contains('header-collapsed')) header.classList.add('header-collapsed');
-    if (main   && !main.classList.contains('content-visible'))   main.classList.add('content-visible');
-    document.body.style.overflowY = 'auto';
-  }
+
+function collapseHeaderAndShowMain(){
+  var header = document.getElementById('mainHeader');
+  var main = document.getElementById('mainContent');
+  if (header) header.style.display = 'none'; // Masque le header définitivement
+  if (main && !main.classList.contains('content-visible')) main.classList.add('content-visible');
+  document.body.style.overflowY = 'auto';
+}
 
   function hideMenuAndIntro(){
     var menu  = document.getElementById('main-menu');
@@ -1796,6 +1798,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       collapseHeaderAndShowMain();
       hideMenuAndIntro();
       activateSection(id);
+      window.scrollTo({ top: 0, behavior: 'smooth' }
     }catch(e){ console.warn('showSection override error', e); }
   };
 
@@ -1822,6 +1825,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       collapseHeaderAndShowMain();
       hideMenuAndIntro();
       activateSection(id);
+      window.scrollTo({ top: 0, behavior: 'smooth' }
     }
   }
 })();
