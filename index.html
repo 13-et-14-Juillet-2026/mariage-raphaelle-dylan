@@ -155,6 +155,7 @@ html, body {
       }
     }
     #floating-countdown {
+      display: none;
       position: fixed;
       bottom: 24px;
       right: 24px;
@@ -614,6 +615,7 @@ html, body {
         border-radius: 10px;
       }
       #floating-countdown {
+        display: none;
         bottom: 8px;
         right: 8px;
         padding: 8px 10px;
@@ -707,6 +709,7 @@ html, body {
         border-radius: 5px;
       }
       #floating-countdown {
+        display: none;
         bottom: 2px;
         right: 2px;
         padding: 4px 6px;
@@ -744,7 +747,7 @@ html, body {
     }
 
 #floating-countdown {
-  display: flex;
+  display: none;
   align-items: center;
 }
 
@@ -1018,7 +1021,7 @@ html, body {
      ========================== */
   .menu-intro {
   max-width: 1100px;
-  margin: -50px auto 20px; 
+  margin: 50px auto 20px; 
   padding: 10px 30px;
   /* Dégradé beige doux */
   background: linear-gradient(135deg, rgba(245, 240, 225, 0.8), rgba(255, 255, 255, 0.8));
@@ -1112,7 +1115,7 @@ html, body {
       Liste de mariage
     </button>
 <button class="btn-hebergement" onclick="showSection('hebergement')" style="background-image: url('fond6.png');">
-      Hébergement
+      Hébergements
     </button>
 <button class="btn-programme" onclick="showSection('programme')" style="background-image: url('fond2.png');">
       Programme
@@ -1485,7 +1488,7 @@ Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un 
 </div>
 </li>
 <li>
-<a href="https://hotel-limoux.fr/dispo.php/" target="_blank"><strong>Hôtel Motel Limoux</strong></a> (Limoux) - 5 minutes en voiture
+<a href="https://hotel-limoux.fr/" target="_blank"><strong>Hôtel Motel Limoux</strong></a> (Limoux) - 5 minutes en voiture
   <div style="margin-left: 40px; line-height: 1.6;">
 <em>Motel à partir de 32€/nuit</em><br/>
 <a href="contact@hotel-limoux.fr" style="font-size: 0.8em;">contact@hotel-limoux.fr</a><br/>
@@ -1736,13 +1739,13 @@ document.getElementById('contact-form').addEventListener('submit', function(even
       const headerToggle = document.getElementById('headerToggle');
       const mainHeader = document.getElementById('mainHeader');
       const mainContent = document.getElementById('mainContent');
-
 headerToggle.addEventListener('click', function() {
   mainHeader.style.display = 'none'; // Masque le header définitivement
   mainContent.classList.add('content-visible');
   document.body.style.overflow = 'auto';
+  document.getElementById('floating-countdown').style.display = 'flex'; // <-- Affiche le compte à rebours
   setTimeout(() => {
-    window.scrollTo({
+  window.scrollTo({
       top: 0,
       behavior: 'smooth'
     });
