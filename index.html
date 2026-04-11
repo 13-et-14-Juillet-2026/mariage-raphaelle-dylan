@@ -1061,7 +1061,33 @@ html, body {
     opacity: 1;
 }
 
+/* Style pour le plein écran total */
+.map-container:-webkit-full-screen { width: 100vw; height: 100vh; background: white; }
+.map-container:fullscreen { width: 100vw; height: 100vh; background: white; }
 
+/* Correction pour l'iframe en mode plein écran */
+.map-container:fullscreen iframe, 
+.map-container:-webkit-full-screen iframe {
+    height: 100vh !important;
+    width: 100vw !important;
+    border-radius: 0 !important; /* On enlève les arrondis en plein écran pour faire plus propre */
+}
+
+.btn-fullscreen {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 999;
+    background: white;
+    border: 2px solid #d4a373;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #d4a373;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
 
 </style>
 </head>
@@ -1207,7 +1233,16 @@ html, body {
 <input name="email" placeholder="Votre email" required="" type="email"/>
 <textarea name="message" placeholder="Votre question" required="" rows="5"></textarea>
 <input name="_gotcha" style="display:none" type="text"/>
+
+
+
+
 <button type="submit">Poser ma question</button>
+
+
+
+
+
 </form>
 <div id="response-message" style="display:none; color: green; margin-top: 1em;">
     Merci ! Ton message a bien été envoyé.
@@ -1766,7 +1801,13 @@ Si vous souhaitez contribuer plus, vous trouverez ici la liste de mariage et un 
 <input name="email" placeholder="Votre email" required="" type="email"/>
 <textarea name="message" placeholder="Votre question" required="" rows="5"></textarea>
 <input name="_gotcha" style="display:none" type="text"/>
+
+
+
 <button type="submit">Poser ma question</button>
+
+
+
 </form>
 <div id="response-message" style="display:none; color: green; margin-top: 1em;">
   Merci ! Ton message a bien été envoyé.
@@ -1952,9 +1993,41 @@ headerToggle.addEventListener('click', function() {
                 </div>
             </div>
 
-            <div style="width:100%; height:350px;max-height: 50vh; margin-top:15px; border-radius:12px; overflow:hidden; border:1px solid #ddd;">
-                <iframe src="https://macarte.ign.fr/carte/oPKqDu/Aller-a-l-eglise-St-Michel-de-Lagrasse" width="100%" height="100%" style="border:0;" allow="geolocation; clipboard-read; clipboard-write"></iframe>
-            </div>
+
+
+
+           <div id="map-block" class="map-container" style="width: 100%; height: 350px; max-height: 100vh; margin-top: 15px; border-radius: 12px; overflow: hidden; border: 2px solid #d4a373; position: relative;">
+    
+    <button type="button" class="btn-fullscreen" onclick="openFullscreen()">⛶ AGRANDIR LA CARTE</button>
+    
+    <iframe 
+        id="ign-iframe"
+        src="https://macarte.ign.fr/carte/oPKqDu/Aller-a-l-eglise-St-Michel-de-Lagrasse" 
+        width="100%" 
+        height="100%" 
+        style="border:0;" 
+        allow="geolocation; clipboard-read; clipboard-write">
+    </iframe>
+</div>
+
+<script>
+function openFullscreen() {
+  var elem = document.getElementById("map-block");
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
+
+
+
+
+
+
         </div>
 
         <div style="border: 2px solid #d4a373; border-radius: 15px; padding: 25px 15px 15px; position: relative; background: #fff;">
