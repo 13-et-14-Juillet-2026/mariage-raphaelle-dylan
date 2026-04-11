@@ -1354,13 +1354,12 @@ html, body {
     <input name="Email" placeholder="Adresse email" required type="email"/>
     <input max="10" min="1" name="Personnes" placeholder="Nombre de participants" required type="number"/>
     <textarea name="Commentaires" placeholder="Commentaires" rows="4"></textarea>
+<button type="submit">Confirmer ma présence</button>
 
-    <!-- Optionnel : objet du mail reçu -->
-    <input type="hidden" name="_subject" value="RSVP – Confirmation de présence"/>
+<div style="margin-top: 10px; text-align: center; font-style: italic; color: #c7b449; font-weight: 600;">
+        Merci pour votre réponse !
 
-    <button type="submit">Confirmer ma présence</button>
-
-    <div id="confirmationMessage" style="display:none; margin-top:10px; color:#06d6a0; font-weight:600;">
+<div id="confirmationMessage" style="display:none; margin-top:8px; color:#06d6a0; font-weight:600;">
       Merci ! Votre présence a été enregistrée 🌺
     </div>
 
@@ -1462,8 +1461,7 @@ document.getElementById('confirmationForm').addEventListener('submit', function(
   });
 });
 </script>
-<div style="margin-top: 20px; text-align: center; font-style: italic; color: #c7b449; font-weight: 600;">
-        Merci pour votre réponse !
+
       </div>
 <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
 </section>
