@@ -1343,20 +1343,74 @@ html, body {
 
 </style>
 <section class="content-section" id="confirmation">
-<h2>Confirmation de Présence</h2>
-<p>Merci de confirmer votre présence<br/>
-         afin que nous puissions organiser au mieux cette journée parfaite !</p>
-<form action="https://getform.io/f/bqoeklvb" id="confirmationForm" method="POST">
-<input name="Nom" placeholder="Nom et prénom" required="" type="text"/>
-<input name="Email" placeholder="Adresse email" required="" type="email"/>
-<input max="10" min="1" name="Personnes" placeholder="Nombre de participants" required="" type="number"/>
-<textarea name="Commentaires" placeholder="Commentaires" rows="4"></textarea>
-<button type="submit">Confirmer ma présence</button>
-<div id="confirmationMessage" style="display:none; margin-top:10px; color:#06d6a0; font-weight:600;">
-    Merci ! Votre présence a été enregistrée 🌺
-  </div>
-</form>
+  <h2>Confirmation de Présence</h2>
+  <p>
+    Merci de confirmer votre présence<br/>
+    afin que nous puissions organiser au mieux cette journée parfaite !
+  </p>
 
+  <form action="https://formspree.io/">
+    <input name="Nom" placeholder="Nom et prénom" required type="text"/>
+    <input name="Email" placeholder="Adresse email" required type="email"/>
+    <input max="10" min="1" name="Personnes" placeholder="Nombre de participants" required type="number"/>
+    <textarea name="Commentaires" placeholder="Commentaires" rows="4"></textarea>
+
+    <!-- Optionnel : objet du mail reçu -->
+    <input type="hidden" name="_subject" value="RSVP – Confirmation de présence"/>
+
+    <button type="submit">Confirmer ma présence</button>
+
+    <div id="confirmationMessage" style="display:none; margin-top:10px; color:#06d6a0; font-weight:600;">
+      Merci ! Votre présence a été enregistrée 🌺
+    </div>
+
+    <div id="confirmationError" style="display:none; margin-top:10px; color:#ef476f; font-weight:600;">
+      Oups, une erreur est survenue. Réessaie plus tard.
+    </div>
+  </form>
+
+  <script>
+    (function () {
+      const form = document.getElementById("confirmationForm");
+      const okMsg = document.getElementById("confirmationMessage");
+      const errMsg = document.getElementById("confirmationError");
+      const button = form.querySelector('button[type="submit"]');
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        okMsg.style.display = "none";
+        errMsg.style.display = "none";
+
+        // UX : bouton désactivé pendant l’envoi
+        const oldText = button.textContent;
+        button.disabled = true;
+        button.textContent = "Envoi…";
+
+        try {
+          const data = new FormData(form);
+
+          const res = await fetch(form.action, {
+            method: "POST",
+            body: data,
+            headers: { "Accept": "application/json" }
+          });
+
+          if (res.ok) {
+            form.reset();
+            okMsg.style.display = "block";
+          } else {
+            errMsg.style.display = "block";
+          }
+        } catch (err) {
+          errMsg.style.display = "block";
+        } finally {
+          button.disabled = false;
+          button.textContent = oldText;
+        }
+      });
+    })();
+  </script>
+</section>
 <script>
 function showProgramme(jourId, btn){
   document.querySelectorAll('.programme').forEach(p=>p.classList.remove('active'));
