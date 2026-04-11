@@ -1349,7 +1349,7 @@ html, body {
     afin que nous puissions organiser au mieux cette journée parfaite !
   </p>
 
-  <form action="https://formspree.io/">
+  <form action="https://formspree.io/f/meepykjk" id="confirmationForm" method="POST">
     <input name="Nom" placeholder="Nom et prénom" required type="text"/>
     <input name="Email" placeholder="Adresse email" required type="email"/>
     <input max="10" min="1" name="Personnes" placeholder="Nombre de participants" required type="number"/>
@@ -1381,7 +1381,6 @@ html, body {
         okMsg.style.display = "none";
         errMsg.style.display = "none";
 
-        // UX : bouton désactivé pendant l’envoi
         const oldText = button.textContent;
         button.disabled = true;
         button.textContent = "Envoi…";
@@ -1392,7 +1391,7 @@ html, body {
           const res = await fetch(form.action, {
             method: "POST",
             body: data,
-            headers: { "Accept": "application/json" }
+            headers: { "Accept": "application/json" } // réponse JSON Formspree
           });
 
           if (res.ok) {
@@ -1406,6 +1405,7 @@ html, body {
         } finally {
           button.disabled = false;
           button.textContent = oldText;
+
         }
       });
     })();
