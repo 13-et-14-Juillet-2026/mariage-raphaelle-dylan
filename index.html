@@ -1472,6 +1472,8 @@ html, body {
 
 
 </style>
+
+
 <section class="content-section" id="confirmation">
   <h2>Confirmation de Présence</h2>
   <p>
@@ -1487,28 +1489,25 @@ html, body {
 
     <button type="submit">Confirmer ma présence</button>
 
-    <!-- Toujours visible, juste sous le bouton -->
-    <div style="margin-top:10px; text-align:center; font-style:italic; color:#c7b449; font-weight:600;">
-      Merci pour votre réponse !
-    </div>
-
-    <!-- Cachés : affichés après envoi -->
-    <div id="confirmationMessage" style="display:none; margin-top:8px; text-align:center; color:#06d6a0; font-weight:600;">
+    <div id="confirmationMessage" style="display:none; margin-top:15px; text-align:center; color:#06d6a0; font-weight:600;">
       Merci ! Votre présence a été enregistrée 🌺
-
+    </div>
+    
+    <div id="confirmationError" style="display:none; margin-top:15px; text-align:center; color:#e74c3c; font-weight:600;">
+      Oups ! Une erreur est survenue. Veuillez réessayer.
+    </div>
   </form>
+</section>
 
+<script>
+  // --- Gestion du Formulaire de Confirmation ---
+  (function () {
+    const form = document.getElementById("confirmationForm");
+    const okMsg = document.getElementById("confirmationMessage");
+    const errMsg = document.getElementById("confirmationError");
+    const button = form.querySelector('button[type="submit"]');
 
-
-
-
-  <script>
-    (function () {
-      const form = document.getElementById("confirmationForm");
-      const okMsg = document.getElementById("confirmationMessage");
-      const errMsg = document.getElementById("confirmationError");
-      const button = form.querySelector('button[type="submit"]');
-
+    if (form) {
       form.addEventListener("submit", async (e) => {
         e.preventDefault();
         okMsg.style.display = "none";
@@ -1520,11 +1519,10 @@ html, body {
 
         try {
           const data = new FormData(form);
-
           const res = await fetch(form.action, {
             method: "POST",
             body: data,
-            headers: { "Accept": "application/json" } // réponse JSON Formspree
+            headers: { "Accept": "application/json" }
           });
 
           if (res.ok) {
@@ -1538,40 +1536,45 @@ html, body {
         } finally {
           button.disabled = false;
           button.textContent = oldText;
-
         }
       });
-    })();
- 
-<script>
-function showProgramme(jourId, btn){
-  document.querySelectorAll('.programme').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.date-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(jourId).classList.add('active');
-  btn.classList.add('active');
-}
-document.getElementById('contact-form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  fetch(this.action, {
-    method: this.method,
-    body: new FormData(this),
-    headers: { 'Accept': 'application/json' }
-  })
-  .then(response => {
-    if (response.ok) {
-      document.getElementById('response-message').style.display = 'block';
-      this.reset();
-    } else {
-      response.json().then(data => {
-        alert("Erreur lors de l'envoi : " + (data.error || "réessaye plus tard."));
-      });
     }
-  })
-  .catch(() => {
-    alert("Erreur réseau, réessayez plus tard.");
-  });
-});
+  })();
+
+  // --- Gestion du Programme ---
+  function showProgramme(jourId, btn){
+    document.querySelectorAll('.programme').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.date-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById(jourId).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // --- Gestion du Formulaire "Une Question" ---
+  const contactForm = document.getElementById('contact-form');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+      event.preventDefault();
+      fetch(this.action, {
+        method: this.method,
+        body: new FormData(this),
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(response => {
+        if (response.ok) {
+          document.getElementById('response-message').style.display = 'block';
+          this.reset();
+        } else {
+          alert("Erreur lors de l'envoi, réessayez plus tard.");
+        }
+      })
+      .catch(() => {
+        alert("Erreur réseau, réessayez plus tard.");
+      });
+    });
+  }
 </script>
+
+
 
       </div>
 <button class="return-btn" onclick="returnToMenu()">Retour au menu</button>
